@@ -1,0 +1,41 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            clientId: 
+            clientSecret: 
+            scope: openid
+            authorization-grant-type: authorization_code
+            redirectUri: '{baseUrl}/login/oauth2/code/{registrationId}'
+          azure:
+            clientId: 
+            clientSecret: 
+            redirectUri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope: openid
+            authorization-grant-type: authorization_code
+
+        provider:
+          okta:
+            authorizationUri: 
+            tokenUri: 
+            userInfoUri: 
+            jwk-set-uri: 
+
+          azure:
+            authorizationUri: 
+            tokenUri: 
+            userInfoUri: 
+            jwk-set-uri: 
+            userNameAttribute: email
